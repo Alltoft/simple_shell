@@ -8,9 +8,9 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <stat.h>
+int main(void);
+#include <sys/stat.h>
 #include <errno.h>
 #include <fcntl.h>
-
-int main(void);
-
+char *prompt_shell(void);
 #endif
