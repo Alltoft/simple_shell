@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 /**
  * main - entry point
@@ -7,6 +9,10 @@
 
 int main(void)
 {
-	printf("Hello, World!\n");
-	return 0;
+	char *c = "hello wolrd";
+	int length = strlen(c);
+
+	write(1, c, length);
+
+	return (0);
 }
