@@ -4,9 +4,9 @@
 /**
  * main - main fuctions
  * @ac: argument count
- * @av: arguments
+ * @argv: arguments
  * Return: 0
- */ 
+ */
 
 int main(int ac, char **argv)
 {
@@ -14,14 +14,15 @@ int main(int ac, char **argv)
 	(void) ac;
 	(void) argv;
 
-	while(1)
+	while (1)
 	{
-		line = prompt_shell(); /* function to display our prompt and read user input*/
-		if (line == NULL){
+		line = prompt_shell();
+		if (line == NULL)
+		{
 			if (isatty(STDIN_FILENO))
 			write(STDOUT_FILENO, "\n", 1);
 			return (0);
-	}
+		}
 	free(line);
 	}
 }
