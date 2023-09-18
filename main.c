@@ -33,6 +33,8 @@ int main(int ac, char **argv)
 	command = command_tokenizer(line);
 	if (!command)
 		continue;
+	free(command);
+	free(line)l;
 
 	status = _execute(command, argv);
 	}
