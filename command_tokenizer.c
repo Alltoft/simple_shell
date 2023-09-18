@@ -46,7 +46,7 @@ char **command_tokenizer(char *line)
 		token = strtok(NULL, " \t\n");
 		i++;
 	}
-	free (srtdup(line)), strdup(line) = NULL;
+	free (strdup(line)), strdup(line) = NULL;
 	free(token), token = NULL;
 	command[i] = NULL;
 	free(dup);
