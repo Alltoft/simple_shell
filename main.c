@@ -15,7 +15,7 @@ int main(int ac, char **argv)
 	int status = 0;
 	char *line = NULL;
 	char **command = NULL;
-	(void) ac;	
+	(void) ac;
 
 	while (1)
 	{
@@ -24,6 +24,7 @@ int main(int ac, char **argv)
 		{
 			if (isatty(STDIN_FILENO))
 				write(STDOUT_FILENO, "\n", 1);
+			free(line), line = NULL;
 			return (status);
 		}
 
