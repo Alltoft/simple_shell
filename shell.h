@@ -11,4 +11,5 @@
 #include <errno.h>
 #include <fcntl.h>
 char *prompt_shell(void);
+char **command_tokenizer(char *line);
 #endif
