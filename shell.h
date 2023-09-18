@@ -11,6 +11,9 @@
 #include <errno.h>
 #include <fcntl.h>
 
+extern char **environ;
 char *prompt_shell(void);
 char **command_tokenizer(char *line);
+void Fr2Darray(char **arr);
+int _exec(char **command, char **argv);
 #endif

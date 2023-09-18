@@ -12,13 +12,10 @@
 
 int main(int ac, char **argv)
 {
-	int i ;
-	char *line;
-	char **command;
-	(void) ac;
-	(void) argv;
-
-	
+	int status = 0;
+	char *line = NULL;
+	char **command = NULL;
+	(void) ac;	
 
 	while (1)
 	{
@@ -26,20 +23,14 @@ int main(int ac, char **argv)
 		if (line == NULL)
 		{
 			if (isatty(STDIN_FILENO))
-			write(STDOUT_FILENO, "\n", 1);
-			free(line), line = NULL;
-			return (0);
+				write(STDOUT_FILENO, "\n", 1);
+			return (status);
 		}
-	command = command_tokenizer(line);
-	if (!command)
-		continue;
 
-	for (i = 0; command[i]; i++)
-		printf("%s\n", command[i]);
+		command = command_tokenizer(line);
+		if (!command)
+			continue;
 
-	for (i = 0; command[i]; i++)
-		free(command[i]);
-	free(command);
+		status = _exec(command, argv);
 	}
-	return 0;
 }

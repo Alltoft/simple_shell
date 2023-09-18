@@ -19,7 +19,7 @@ char *prompt_shell(void)
 
 	if (a == -1)
 	{
-		free(line);
+		free(line), line = NULL;
 		return (NULL);
 	}
 	return (line);
