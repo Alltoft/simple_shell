@@ -12,11 +12,11 @@
 
 int main(int ac, char **argv)
 {
+	int status = 0;
 	int i ;
 	char *line;
-	char **command;
+	char **command = NULL;
 	(void) ac;
-	(void) argv;
 
 	
 
@@ -28,18 +28,13 @@ int main(int ac, char **argv)
 			if (isatty(STDIN_FILENO))
 			write(STDOUT_FILENO, "\n", 1);
 			free(line), line = NULL;
-			return (0);
+			return (status);
 		}
 	command = command_tokenizer(line);
 	if (!command)
 		continue;
 
-	for (i = 0; command[i]; i++)
-		printf("%s\n", command[i]);
-
-	for (i = 0; command[i]; i++)
-		free(command[i]);
-	free(command);
+	status = _execute(command, argv);
 	}
-	return 0;
+	return status;
 }
