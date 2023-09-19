@@ -1,6 +1,6 @@
 #include "shell.h"
 
-char *strdup(const char *str)
+char *_strdup(const char *str)
 {
 	char *ptr;
 	int i, len = 0;
