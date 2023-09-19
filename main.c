@@ -17,8 +17,6 @@ int main(int ac, char **argv)
 	char **command = NULL;
 	(void) ac;
 
-	
-
 	while (1)
 	{
 		line = prompt_shell();

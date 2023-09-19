@@ -1,16 +1,22 @@
 #include "shell.h"
 
-void free_command(char **command)
+/**
+ * free_arr - frees memory
+ * @arr: arr of string
+ * this function allocates memory and frees it
+ */
+
+void free_arr(char **arr)
 {
 	int i = 0;
 
-	if (!command)
+	if (!arr)
 		return;
 
-	while (command[i])
+	while (arr[i])
 	{
-		free(command[i]), command[i] = NULL;
+		free(arr[i]), arr[i] = NULL;
 		i++;
 	}
-	free(command), command = NULL;
+	free(arr), arr = NULL;
 }

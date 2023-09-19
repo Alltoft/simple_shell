@@ -6,7 +6,7 @@
 #include <stdio.h>
 
 /**
- * exec - function that executes a command
+ * _execute - function that executes a command
  * @command: command to execute
  * @argv: arguments
  * Return: status
@@ -23,14 +23,14 @@ int _execute(char **command, char **argv)
 		if (execve(command[0], command, environ) == -1)
 		{
 			perror(argv[0]);
-			free_command(command);
+			free_arr(command);
 			exit(0);
 		}
 	}
 		else
 		{
 			waitpid(child, &status, 0);
-			free_command(command);
+			free_arr(command);
 		}
 		return (WEXITSTATUS(status));
 }

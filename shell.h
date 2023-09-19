@@ -16,6 +16,6 @@ extern char **environ;
 char *prompt_shell(void);
 char **command_tokenizer(char *line);
 int _execute(char **command, char **argv);
-void free_command(char **command);
+void free_arr(char **arr);
 
 #endif
