@@ -12,25 +12,34 @@
  * Return: status
  */
 
-int _execute(char **command, char **argv)
+int _execute(char **command, char **argv, int idx)
 {
+	char *full_command;
 	pid_t child;
 	int status;
+
+	full_command = _getpath(command[0]);
+	if (full_command == NULL)
+	{
+		print_error(argv[0], command[0], idx);
+		free_arr(command);
+		return(127);
+	}
 
 	child = fork();
 	if (child == 0)
 	{
-		if (execve(command[0], command, environ) == -1)
+		if (execve(full_command, command, environ) == -1)
 		{
-			perror(argv[0]);
+			free(full_command), full_command = NULL;
 			free_arr(command);
-			exit(0);
 		}
 	}
 		else
 		{
 			waitpid(child, &status, 0);
 			free_arr(command);
+			free(full_command), full_command = NULL;
 		}
 		return (WEXITSTATUS(status));
 }
