@@ -3,7 +3,7 @@
 char *_getenv(char *path)
 {
 	char *tmp, *key, *value, *env;
-	int i;
+	int i = 0;
 
 	while (environ[i])
 	{

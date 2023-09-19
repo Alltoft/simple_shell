@@ -11,6 +11,7 @@ int _exec(char **command, char **argv, int nmbr)
 	{
 		prerror(argv[0], command[0], nmbr);
 		Fr2Darray(command);
+		free(fcmd), fcmd = NULL;
 		return(127);
 	}
 	child = fork();
