@@ -16,14 +16,14 @@ char **command_tokenizer(char *line)
 	int i = 0;
 
 	if (!line)
-		return(NULL);
+		return (NULL);
 
-	dup = strdup(line);
+	dup = _strdup(line);
 	token = strtok(dup, " \t\n");
 	if (token == NULL)
 	{
-		free (line), line = NULL;
-		free (dup), dup = NULL;
+		free(line), line = NULL;
+		free(dup), dup = NULL;
 		return (NULL);
 	}
 	while (token)
@@ -36,17 +36,17 @@ char **command_tokenizer(char *line)
 	command = malloc(sizeof(char *) * (cnt + 1));
 	if (command == NULL)
 	{
-		free (line), line = NULL;
+		free(line), line = NULL;
 		return (NULL);
 	}
 	token = strtok(line, " \t\n");
 	while (token)
 	{
-		command[i] = strdup(token);
+		command[i] = _strdup(token);
 		token = strtok(NULL, " \t\n");
 		i++;
 	}
-	free (line), line = NULL;
+	free(line), line = NULL;
 	command[i] = NULL;
 	return (command);
 }

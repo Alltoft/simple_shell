@@ -1,5 +1,11 @@
 #include "shell.h"
 
+/**
+ * _getenv - it gets an enviren
+ * @path: is the path
+ * Return: NULL
+ */
+
 char *_getenv(char *path)
 {
 	char *tmp, *key, *value, *env;
@@ -14,10 +20,10 @@ char *_getenv(char *path)
 			value = strtok(NULL, "\n");
 			env = _strdup(value);
 			free(tmp);
-			return(env);
+			return (env);
 		}
 		free(tmp), tmp = NULL;
 		i++;
 	}
-	return(NULL);
+	return (NULL);
 }

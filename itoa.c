@@ -1,7 +1,13 @@
 #include "shell.h"
+
+/**
+ * _itoa - changes int to ascii
+ * @n: the int
+ * Return: buffer
+ */
 char *_itoa(int n)
 {
-	char buffer [20];
+	char buffer[20];
 	int i = 0;
 
 	if (n == 0)
@@ -16,13 +22,19 @@ char *_itoa(int n)
 	}
 	buffer[i] = '\0';
 	reverse_string(buffer, i);
-	return(_strdup(buffer));
+	return (_strdup(buffer));
 }
+
+/**
+ * reverse_string - it revers a string
+ * @str: the string
+ * @len: lenght of string
+ */
 
 void reverse_string(char *str, int len)
 {
 	char tmp;
-	int i = 0, nd = len -1;
+	int i = 0, nd = len - 1;
 
 	while (i < nd)
 	{
@@ -33,5 +45,5 @@ void reverse_string(char *str, int len)
 		nd--;
 	}
 
-	
+
 }

@@ -1,5 +1,12 @@
 #include "shell.h"
 
+/**
+ * prerror - prints an error
+ * @sname: name of the string
+ * @cmd: the command
+ * @nmbr: a counter
+ */
+
 void prerror(char *sname, char *cmd, int nmbr)
 {
 	char *index, mssg[] = ": not found\n";

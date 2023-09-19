@@ -1,5 +1,13 @@
 #include "shell.h"
 
+/**
+ * _exec - it executes a command
+ * @command: is the command
+ * @argv: is the name of the shell
+ * @nmbr: a counter
+ * Return: status
+ */
+
 int _exec(char **command, char **argv, int nmbr)
 {
 	char *fcmd;
@@ -12,7 +20,7 @@ int _exec(char **command, char **argv, int nmbr)
 		prerror(argv[0], command[0], nmbr);
 		Fr2Darray(command);
 		free(fcmd), fcmd = NULL;
-		return(127);
+		return (127);
 	}
 	child = fork();
 	if (child == 0)
