@@ -12,7 +12,7 @@
  * Return: status
  */ 
 
-int _exec(char **command, char **argv)
+int _execute(char **command, char **argv)
 {
 	pid_t child;
 	int status;

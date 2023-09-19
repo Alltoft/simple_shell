@@ -13,7 +13,7 @@
 int main(int ac, char **argv)
 {
 	int status = 0;
-	char *line;
+	char *line = NULL;
 	char **command = NULL;
 	(void) ac;
 
@@ -33,6 +33,6 @@ int main(int ac, char **argv)
 	if (!command)
 		continue;
 
-	status = _exec(command, argv);
+	status = _execute(command, argv);
 	}
 }

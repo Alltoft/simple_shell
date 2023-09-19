@@ -4,51 +4,44 @@
 
 char **command_tokenizer(char *line)
 {
-	char *token, *dup;
-	char **command;
+	char *token = NULL, *dup = NULL;
+	char **command = NULL;
 	int cnt = 0;
-	int i;
+	int i = 0;
+
+	if (!line)
+		return (NULL);
 
 	dup = strdup(line);
-	if (!dup)
+	token = strtok(dup, " \t\n");
+	if (token == NULL)
 	{
+		free(line), line = NULL;
 		free(dup), dup = NULL;
 		return(NULL);
 	}
 
-	token = strtok(dup, " \t\n");
-	if (!token)
-		free(token), token = NULL;
 	while (token)
 	{
 		cnt++;
 		token= strtok(NULL, " \t\n");
 	}
-	free(token), token = NULL;
+	free(dup), dup = NULL;
 	command = malloc(sizeof(char *) * (cnt + 1));
-	if (!command)
+	if (command == NULL)
 	{
-		perror("memory allocation failed");
-		free(command);
-		exit(EXIT_FAILURE);
+		free (line), line = NULL;
+		return (NULL);
 	}
 
-	token = strtok(strdup(line), " \t\n");
+	token = strtok(line, " \t\n");
 	while (token)
 	{
 		command[i] = strdup(token);
-		if (!command[i])
-		{
-			perror("memory allocation failed");
-			free(command);
-			exit(EXIT_FAILURE);
-		}
 		token = strtok(NULL, " \t\n");
 		i++;
 	}
-	free(strdup(line));
-	free(token), token = NULL;
+	free (line), line = NULL;
 	command[i] = NULL;
-	free(dup);
 	return (command);
 }
