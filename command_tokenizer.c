@@ -18,19 +18,19 @@ char **command_tokenizer(char *line)
 	{
 		free(line), line = NULL;
 		free(dup), dup = NULL;
-		return(NULL);
+		return (NULL);
 	}
 
 	while (token)
 	{
 		cnt++;
-		token= strtok(NULL, " \t\n");
+		token = strtok(NULL, " \t\n");
 	}
 	free(dup), dup = NULL;
 	command = malloc(sizeof(char *) * (cnt + 1));
 	if (command == NULL)
 	{
-		free (line), line = NULL;
+	free(line), line = NULL;
 		return (NULL);
 	}
 
@@ -41,7 +41,7 @@ char **command_tokenizer(char *line)
 		token = strtok(NULL, " \t\n");
 		i++;
 	}
-	free (line), line = NULL;
+	free(line), line = NULL;
 	command[i] = NULL;
 	return (command);
 }

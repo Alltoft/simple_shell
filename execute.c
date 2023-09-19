@@ -10,7 +10,7 @@
  * @command: command to execute
  * @argv: arguments
  * Return: status
- */ 
+ */
 
 int _execute(char **command, char **argv)
 {
@@ -32,5 +32,5 @@ int _execute(char **command, char **argv)
 			waitpid(child, &status, 0);
 			free_command(command);
 		}
-		return(WEXITSTATUS(status));
+		return (WEXITSTATUS(status));
 }
