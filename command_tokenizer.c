@@ -2,6 +2,12 @@
 #include <string.h>
 #include <stdlib.h>
 
+/**
+ * command_tokenizer - tokenizes a string into arr of strings
+ * @line: input string
+ * Return: a pointer to an array of strings
+ */
+
 char **command_tokenizer(char *line)
 {
 	char *token = NULL, *dup = NULL;
@@ -23,7 +29,7 @@ char **command_tokenizer(char *line)
 	while (token)
 	{
 		cnt++;
-		token= strtok(NULL, " \t\n");
+		token = strtok(NULL, " \t\n");
 	}
 	free(dup), dup = NULL;
 

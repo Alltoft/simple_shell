@@ -12,8 +12,16 @@
 #include <fcntl.h>
 
 extern char **environ;
+
 char *prompt_shell(void);
 char **command_tokenizer(char *line);
-void Fr2Darray(char **arr);
-int _exec(char **command, char **argv);
+int _execute(char **command, char **argv);
+void free_arr(char **arr);
+
+char *_strdup(char *str);
+int _strcmp(char *s1, char *s2);
+int _strlen(char *s);
+char *_strcat(char *dest, char *src);
+char *_strcpy(char *dest, char *src);
+
 #endif
