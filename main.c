@@ -1,5 +1,7 @@
 #include <stdlib.h>
 #include "shell.h"
+#include <string.h>
+#include <stdio.h>
 
 /**
  * main - main fuctions
@@ -10,9 +12,10 @@
 
 int main(int ac, char **argv)
 {
-	char *line;
+	int status = 0;
+	char *line = NULL;
+	char **command = NULL;
 	(void) ac;
-	(void) argv;
 
 	while (1)
 	{
@@ -20,9 +23,15 @@ int main(int ac, char **argv)
 		if (line == NULL)
 		{
 			if (isatty(STDIN_FILENO))
-			write(STDOUT_FILENO, "\n", 1);
-			return (0);
+				write(STDOUT_FILENO, "\n", 1);
+			free(line), line = NULL;
+			return (status);
 		}
-	free(line);
+
+		command = command_tokenizer(line);
+		if (!command)
+			continue;
+
+		status = _exec(command, argv);
 	}
 }
