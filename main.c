@@ -12,7 +12,7 @@
 
 int main(int ac, char **argv)
 {
-	int status = 0;
+	int status = 0, nmbr = 0;
 	char *line = NULL;
 	char **command = NULL;
 	(void) ac;
@@ -27,11 +27,12 @@ int main(int ac, char **argv)
 			free(line), line = NULL;
 			return (status);
 		}
+		nmbr++;
 
 		command = command_tokenizer(line);
 		if (!command)
 			continue;
 
-		status = _exec(command, argv);
+		status = _exec(command, argv, nmbr);
 	}
 }

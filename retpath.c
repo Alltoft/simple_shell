@@ -1,6 +1,6 @@
 #include "shell.h"
 
-char *_getenv(char *var)
+char *_getenv(char *path)
 {
 	char *tmp, *key, *value, *env;
 	int i;
@@ -9,7 +9,7 @@ char *_getenv(char *var)
 	{
 		tmp = _strdup(environ[i]);
 		key = strtok(tmp, "=");
-		if (_strcmp(key, var) == 0)
+		if (_strcmp(key, path) == 0)
 		{
 			value = strtok(NULL, "\n");
 			env = _strdup(value);

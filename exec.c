@@ -1,24 +1,32 @@
 #include "shell.h"
 
-int _exec(char **command, char **argv)
+int _exec(char **command, char **argv, int nmbr)
 {
+	char *fcmd;
 	pid_t child;
 	int status;
 
+	fcmd = _getpath(command[0]);
+	if (!fcmd)
+	{
+		prerror(argv[0], command[0], nmbr);
+		Fr2Darray(command);
+		return(127);
+	}
 	child = fork();
 	if (child == 0)
 	{
-		if (execve(command[0], command, environ) == -1)
+		if (execve(fcmd, command, environ) == -1)
 		{
-			perror(argv[0]);
+			free(fcmd), fcmd = NULL;
 			Fr2Darray(command);
-			exit(0);
 		}
 	}
 	else
 	{
 		waitpid(child, &status, 0);
 		Fr2Darray(command);
+		free(fcmd), fcmd = NULL;
 	}
 	return (WEXITSTATUS(status));
 }
