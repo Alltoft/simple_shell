@@ -7,7 +7,7 @@ char **command_tokenizer(char *line)
 	char *token, *dup;
 	char **command;
 	int cnt = 0;
-	int i = 0;
+	int i;
 
 	dup = strdup(line);
 	if (!dup)
@@ -46,7 +46,7 @@ char **command_tokenizer(char *line)
 		token = strtok(NULL, " \t\n");
 		i++;
 	}
-	free (strdup(line)), strdup(line) = NULL;
+	free(strdup(line));
 	free(token), token = NULL;
 	command[i] = NULL;
 	free(dup);

@@ -11,11 +11,11 @@
 #include <errno.h>
 #include <fcntl.h>
 
-extern char **env;
+extern char **environ;
 
 char *prompt_shell(void);
 char **command_tokenizer(char *line);
-int _execute_command(char **command);
-char *_strdup(const char *str);
+int _exec(char **command, char **argv);
+void free_command(char **command);
 
 #endif
