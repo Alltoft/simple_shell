@@ -11,5 +11,5 @@ void prenv(char **command, int *status)
 		i++;
 	}
 	Fr2Darray(command);
-	(*status) = 0;
+	*status = 0;
 }
