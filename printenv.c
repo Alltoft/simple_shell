@@ -1,9 +1,15 @@
 #include "shell.h"
 
 /**
+<<<<<<< HEAD
  * prenv - prints environ
  * @command: of the environ
  * @status: the exit status
+=======
+ * prenv - gets environment
+ * @command: command
+ * @status: status
+>>>>>>> alien
  */
 
 void prenv(char **command, int *status)
