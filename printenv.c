@@ -1,9 +1,15 @@
 #include "shell.h"
 
+/**
+ * prenv - gets environment
+ * @command: command
+ * @status: status
+ */
+
 void prenv(char **command, int *status)
 {
 	int i = 0;
-	
+
 	while (environ[i])
 	{
 		write(STDOUT_FILENO, environ[i], _strlen(environ[i]));

@@ -33,10 +33,10 @@ int main(int ac, char **argv)
 		if (!command)
 			continue;
 
-		if (_strcmp(command[0], "exit") == 0)
-                {
-                        exit(status);
-                }
+	if (_strcmp(command[0], "exit") == 0)
+	{
+	exit(status);
+	}
 		if (_strcmp(command[0], "env") == 0)
 		{
 			prenv(command, &status);
