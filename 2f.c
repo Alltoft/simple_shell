@@ -4,7 +4,7 @@
  * positive_num - cheks if nums are positive
  * @str: string to verify
  * Return: 1 if str is positive
- */ 
+ */
 
 int positive_num(char *str)
 {
