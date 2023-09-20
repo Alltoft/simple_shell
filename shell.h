@@ -23,6 +23,7 @@ void Fr2Darray(char **arr);
 void prerror(char *sname, char *cmd, int nmbr);
 char *_itoa(int n);
 void reverse_string(char *str, int len);
+void prenv(char **command, int *status);
 
 char *_strdup(char *str);
 int _strcmp(char *s1, char *s2);
