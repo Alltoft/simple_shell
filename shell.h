@@ -24,7 +24,9 @@ void prerror(char *sname, char *cmd, int nmbr);
 char *_itoa(int n);
 void reverse_string(char *str, int len);
 void prenv(char **command, int *status);
-void exit_shell(char **command, int *status);
+void exit_shell(char **command, char **argv, int *status, int idx);
+int positive_num(char *str);
+int _atoi(char *str);
 
 char *_strdup(char *str);
 int _strcmp(char *s1, char *s2);
